@@ -135,8 +135,13 @@ while True:
     if key == 27:
         for i in arr:
             if c % 3 == 0:
-                new_arr.append(arr[c])
-                number = number + 1
+                #1초당 30프레임이므로 5초가 지나면 150프레임
+                if c > 150:
+                    break
+                else:
+                    #샘플링은 1초당 10프레임으로 잡았으므로 50개가 최대임
+                    new_arr.append(arr[c])
+                    number = number + 1
             c = c + 1       
         print(arr)
         print("new arr\n")
